@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System;
@@ -7,7 +8,7 @@ namespace Ecommerce.Models
 {
     public class Order 
     {
-        public Order () => CreatedAt = DateTime.Now; 
+        public Order () => CreatedAt = DateTimeConverter.Now; 
 
         public int Id { get; set; }
 

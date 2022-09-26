@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\informatica\\Documents\\Ecomerce\\Ecommerce\\Ecommerce.csproj": {}
+    "/Users/eduardagarangau/Projeto-eCommerce/Projeto-eCommerce/Ecommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\informatica\\Documents\\Ecomerce\\Ecommerce\\Ecommerce.csproj": {
+    "/Users/eduardagarangau/Projeto-eCommerce/Projeto-eCommerce/Ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\informatica\\Documents\\Ecomerce\\Ecommerce\\Ecommerce.csproj",
+        "projectUniqueName": "/Users/eduardagarangau/Projeto-eCommerce/Projeto-eCommerce/Ecommerce.csproj",
         "projectName": "Ecommerce",
-        "projectPath": "C:\\Users\\informatica\\Documents\\Ecomerce\\Ecommerce\\Ecommerce.csproj",
-        "packagesPath": "C:\\Users\\informatica\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\informatica\\Documents\\Ecomerce\\Ecommerce\\obj\\",
+        "projectPath": "/Users/eduardagarangau/Projeto-eCommerce/Projeto-eCommerce/Ecommerce.csproj",
+        "packagesPath": "/Users/eduardagarangau/.nuget/packages/",
+        "outputPath": "/Users/eduardagarangau/Projeto-eCommerce/Projeto-eCommerce/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/eduardagarangau/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.302/RuntimeIdentifierGraph.json"
         }
       }
     }
