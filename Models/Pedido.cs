@@ -12,9 +12,9 @@ namespace Ecommerce.Models
 
         public int Id { get; set; }
 
-        public double PrecoTotal { get; set; }
+        public double Total { get; set; }
 
-        public List<CartItem> Produtos { get; set; }
+        public List<ItemCarrinho> Produtos { get; set; }
 
         public DateTime CriadoEm {get; set; }
     }
