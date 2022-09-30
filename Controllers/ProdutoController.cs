@@ -16,18 +16,12 @@ namespace Ecommerce.Controllers
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Produto produto)
         {
+            Categoria categoria = _contex.Categorias.Find(produto.Categorias.Id);
+            produto.Categorias = categoria;
             _contex.Produtos.Add(produto);
             _contex.SaveChanges();
             return Created("", produto);
         }
-
         //GET: /api/produto/buscarCategoria/{id}
-        [HttpGet]
-        [Route("buscarCategoria/{id}")]
-        public IActionResult BuscarCategoria([FromRoute] int id)
-        {
-            Produto produto = _contex.Produtos.FirstOrDefault(p => p.Categoria.Id.Equals(id));
-            return produto != null ? Ok(produto) : NotFound();
-        }
     }
 }

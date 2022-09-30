@@ -13,7 +13,7 @@ namespace Ecommerce.Models
 
         public double Preco { get; set; }
         //Relação de Um para Muitos de produtos e categoria.
-        public Categoria Categoria {get;set;}
+        public Categoria Categorias {get;set;}
         
     }
 }
