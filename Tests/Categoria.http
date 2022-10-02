@@ -3,7 +3,7 @@ POST https://localhost:5001/api/categoria/cadastrar
 Content-Type: application/json
 
 {
-    "Tipo": "Eletro Eletronico",
+    "Tipo": "Eletro Eletronico"
 }
 
 ### Listar Clientes
