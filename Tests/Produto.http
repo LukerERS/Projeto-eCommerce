@@ -5,5 +5,8 @@ Content-Type: application/json
 {
     "nome": "Notebook Acer",
     "descricao": "ACER Notebook Aspire 5 A515-56-32PG, Intel Core I3 11ª geração, 4GB, 256GB SDD, Windows11, Prata",
-    "preco": 2.550
+    "preco": 2.550, 
+    "categorias": {
+        "id": 1
+    }
 }

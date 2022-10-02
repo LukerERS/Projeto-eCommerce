@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/eduardagarangau/.dotnet/store/|arch|/|tfm|",
-      "/Users/eduardagarangau/.nuget/packages"
+      "C:\\Users\\eduar\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\eduar\\.nuget\\packages"
     ]
   }
 }
