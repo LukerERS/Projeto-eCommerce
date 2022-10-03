@@ -17,8 +17,8 @@ namespace Ecommerce.Controllers
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Produto produto)
         {
-            Categoria categoria = _contex.Categorias.Find(produto.Categorias.Id);
-            produto.Categorias = categoria;
+            Categoria categoria = _contex.Categorias.Find(produto.CategoriaID);
+            produto.Categoria = categoria;
             _contex.Produtos.Add(produto);
             _contex.SaveChanges();
             return Created("", produto);
@@ -41,23 +41,21 @@ namespace Ecommerce.Controllers
             }
             return NotFound();
         }
-        //PATCH: /api/produto/alterar
-        [HttpPatch]
-        [Route("alterar")]
-        public IActionResult Alterar([FromBody] Produto produto)
-        {   
-            Categoria categoria = _contex.Categorias.Find(produto.Categorias.Id);
-            produto.Categorias = categoria;
-            try
-            {
-                _contex.Produtos.Update(produto);
-                _contex.SaveChanges();
-                return Ok(produto);
-            }
-            catch
-            {
-                return NotFound();
-            }
-        }
+        // //PATCH: /api/produto/alterar
+        // [HttpPatch]
+        // [Route("alterar")]
+        // public IActionResult Alterar([FromBody] Produto produto)
+        // {   
+        //     Produto produtoB = _contex.Produtos.Find(produto.Id);
+        //     if(produtoB != null)
+        //     {
+        //         _contex.Produtos.Update(produto);
+        //         _contex.SaveChanges();
+        //         return Ok(produto);
+        //     }else
+        //     {
+        //         return NotFound();
+        //     }
+        // }
     }
 }
