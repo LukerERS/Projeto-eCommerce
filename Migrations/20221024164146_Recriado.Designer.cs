@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221002205918_Initial")]
-    partial class Initial
+    [Migration("20221024164146_Recriado")]
+    partial class Recriado
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -77,7 +77,7 @@ namespace Ecommerce.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CategoriasId")
+                    b.Property<int>("CategoriaID")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descricao")
@@ -91,7 +91,7 @@ namespace Ecommerce.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriasId");
+                    b.HasIndex("CategoriaID");
 
                     b.ToTable("Produtos");
                 });
@@ -107,16 +107,13 @@ namespace Ecommerce.Migrations
 
             modelBuilder.Entity("Ecommerce.Models.Produto", b =>
                 {
-                    b.HasOne("Ecommerce.Models.Categoria", "Categorias")
-                        .WithMany("Produtos")
-                        .HasForeignKey("CategoriasId");
+                    b.HasOne("Ecommerce.Models.Categoria", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("CategoriaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Categorias");
-                });
-
-            modelBuilder.Entity("Ecommerce.Models.Categoria", b =>
-                {
-                    b.Navigation("Produtos");
+                    b.Navigation("Categoria");
                 });
 #pragma warning restore 612, 618
         }

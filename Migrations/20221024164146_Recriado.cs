@@ -2,7 +2,7 @@
 
 namespace Ecommerce.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Recriado : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,20 +40,20 @@ namespace Ecommerce.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    CategoriaID = table.Column<int>(type: "INTEGER", nullable: false),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
                     Descricao = table.Column<string>(type: "TEXT", nullable: true),
-                    Preco = table.Column<double>(type: "REAL", nullable: false),
-                    CategoriasId = table.Column<int>(type: "INTEGER", nullable: true)
+                    Preco = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Produtos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Produtos_Categorias_CategoriasId",
-                        column: x => x.CategoriasId,
+                        name: "FK_Produtos_Categorias_CategoriaID",
+                        column: x => x.CategoriaID,
                         principalTable: "Categorias",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -82,9 +82,9 @@ namespace Ecommerce.Migrations
                 column: "ProdutoFavoritadoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produtos_CategoriasId",
+                name: "IX_Produtos_CategoriaID",
                 table: "Produtos",
-                column: "CategoriasId");
+                column: "CategoriaID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

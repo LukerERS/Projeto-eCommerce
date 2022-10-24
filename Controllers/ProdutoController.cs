@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Ecommerce.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Controllers
@@ -26,7 +27,13 @@ namespace Ecommerce.Controllers
         //GET: /api/produto/listar
         [HttpGet]
         [Route("listar")]
-        public IActionResult listar() => Ok(_contex.Produtos.ToList());
+        public IActionResult listar()
+        {
+            List<Produto> produtos = 
+                _contex.Produtos.Include(f => f.Categoria).ToList();
+            if(produtos.Count == 0) return NotFound();
+            return Ok(produtos);
+        }
         //DELETE: /api/produto/deletar/{id}
         [HttpDelete]
         [Route("deletar/{id}")]
@@ -41,21 +48,21 @@ namespace Ecommerce.Controllers
             }
             return NotFound();
         }
-        // //PATCH: /api/produto/alterar
-        // [HttpPatch]
-        // [Route("alterar")]
-        // public IActionResult Alterar([FromBody] Produto produto)
-        // {   
-        //     Produto produtoB = _contex.Produtos.Find(produto.Id);
-        //     if(produtoB != null)
-        //     {
-        //         _contex.Produtos.Update(produto);
-        //         _contex.SaveChanges();
-        //         return Ok(produto);
-        //     }else
-        //     {
-        //         return NotFound();
-        //     }
-        // }
+        //PATCH: /api/produto/alterar
+        [HttpPatch]
+        [Route("alterar")]
+        public IActionResult Alterar([FromBody] Produto produto)
+        {   
+            Produto produtoB = _contex.Produtos.Find(produto.Id);
+            if(produtoB != null)
+            {
+                _contex.Produtos.Update(produto);
+                _contex.SaveChanges();
+                return Ok(produto);
+            }else 
+            {
+                return NotFound();
+            }
+        }
     }
 }
