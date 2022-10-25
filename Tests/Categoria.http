@@ -6,5 +6,5 @@ Content-Type: application/json
     "Tipo": "Eletro Eletronico"
 }
 
-### Listar Clientes
+### Listar Categoria
 GET https://localhost:5001/api/categoria/listar

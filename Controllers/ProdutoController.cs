@@ -53,15 +53,20 @@ namespace Ecommerce.Controllers
         [Route("alterar")]
         public IActionResult Alterar([FromBody] Produto produto)
         {   
-            Produto produtoB = _contex.Produtos.Find(produto.Id);
-            if(produtoB != null)
+            try
             {
-                _contex.Produtos.Update(produto);
-                _contex.SaveChanges();
-                return Ok(produto);
-            }else 
+                Categoria categoria = _contex.Categorias.Find(produto.CategoriaID);
+                if(categoria!= null)
+                {
+                    produto.Categoria = categoria;
+                    _contex.Produtos.Update(produto);
+                    _contex.SaveChanges();
+                    return Ok(produto);
+                }else{return NotFound();}
+            }
+            catch 
             {
-                return NotFound();
+               return NotFound();
             }
         }
     }
