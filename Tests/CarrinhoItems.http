@@ -1,0 +1,12 @@
+### Cadastrar um novo item do carrinho
+POST https://localhost:5001/api/item/criar
+Content-Type: application/json
+
+{
+    "produtoId": 1, 
+    "quantidade": 1, 
+    "preco": 14.50
+}
+
+### Deletar um item do carrinho
+DELETE https://localhost:5001/api/item/deletar/1

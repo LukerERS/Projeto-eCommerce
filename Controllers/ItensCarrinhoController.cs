@@ -15,14 +15,26 @@ namespace Ecommerce.Controllers
         //POST: api/item/criar
         [HttpPost]
         [Route("criar")]
-        public IActionResult Criar([FromBody] ItemCarrinho item) {
-            if(String.IsNullOrEmpty(item.CarrinhoId)) {
-                item.CarrinhoId = Guid.NewGuid().ToString(); 
-            } 
-            item.Produto = _context.Produtos.Find(item.ProdutoId); 
-            _context.ItensCarrinho.Add(item); 
+        public IActionResult Criar([FromBody] CarrinhoItem item) {
+            Produto produto = _context.Produtos.Find(item.ProdutoId);
+            item.Produto = produto; 
+            _context.CarrinhoItems.Add(item);  
             _context.SaveChanges(); 
             return Created("", item); 
+        }
+
+        //DELETE: /api/item/deletar/id
+        [HttpDelete]
+        [Route("deletar/{id}")]
+        public IActionResult Deletar([FromRoute] int id) {
+            CarrinhoItem carrinhoItem = _context.CarrinhoItems.Find(id); 
+            if(carrinhoItem != null) {
+                _context.CarrinhoItems.Remove(carrinhoItem); 
+                _context.SaveChanges();
+                return Ok(carrinhoItem); 
+            } else {
+                return NotFound(); 
+            }
         }
 
     }

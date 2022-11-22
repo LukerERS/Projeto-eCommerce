@@ -16,25 +16,29 @@ namespace Ecommerce.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.17");
 
-            modelBuilder.Entity("Ecommerce.Models.Carrinho", b =>
+            modelBuilder.Entity("Ecommerce.Models.CarrinhoItem", b =>
                 {
-                    b.Property<string>("CarrinhoId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("ClienteId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Total")
+                    b.Property<double>("Preco")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("ProdutoId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CarrinhoId");
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("INTEGER");
 
-                    b.HasIndex("ClienteId");
+                    b.HasKey("Id");
 
-                    b.ToTable("Carrinho");
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("CarrinhoItems");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.Categoria", b =>
@@ -71,43 +75,13 @@ namespace Ecommerce.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("Ecommerce.Models.ItemCarrinho", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("CarrinhoId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("TEXT");
-
-                    b.Property<double>("Preco")
-                        .HasColumnType("REAL");
-
-                    b.Property<int>("ProdutoId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarrinhoId");
-
-                    b.HasIndex("ProdutoId");
-
-                    b.ToTable("ItensCarrinho");
-                });
-
             modelBuilder.Entity("Ecommerce.Models.Produto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CategoriaID")
+                    b.Property<int>("CategoriaId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descricao")
@@ -121,26 +95,13 @@ namespace Ecommerce.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaID");
+                    b.HasIndex("CategoriaId");
 
                     b.ToTable("Produtos");
                 });
 
-            modelBuilder.Entity("Ecommerce.Models.Carrinho", b =>
+            modelBuilder.Entity("Ecommerce.Models.CarrinhoItem", b =>
                 {
-                    b.HasOne("Ecommerce.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId");
-
-                    b.Navigation("Cliente");
-                });
-
-            modelBuilder.Entity("Ecommerce.Models.ItemCarrinho", b =>
-                {
-                    b.HasOne("Ecommerce.Models.Carrinho", null)
-                        .WithMany("Itens")
-                        .HasForeignKey("CarrinhoId");
-
                     b.HasOne("Ecommerce.Models.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId")
@@ -154,16 +115,11 @@ namespace Ecommerce.Migrations
                 {
                     b.HasOne("Ecommerce.Models.Categoria", "Categoria")
                         .WithMany()
-                        .HasForeignKey("CategoriaID")
+                        .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Categoria");
-                });
-
-            modelBuilder.Entity("Ecommerce.Models.Carrinho", b =>
-                {
-                    b.Navigation("Itens");
                 });
 #pragma warning restore 612, 618
         }
