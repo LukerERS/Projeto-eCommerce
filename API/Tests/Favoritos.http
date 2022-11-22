@@ -1,0 +1,14 @@
+### Adicionar Favorito
+POST https://localhost:5001/api/favoritos/cadastrar
+Content-Type: application/json
+
+{
+    "IdCliente": 1,
+    "ProdutoFavoritado": {"Id": 1}
+}
+
+### Deletar Favorito
+DELETE https://localhost:5001/api/favoritos/deletar/2
+
+### Listar produtos favoritos
+GET https://localhost:5001/api/favoritos/listar

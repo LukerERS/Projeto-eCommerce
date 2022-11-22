@@ -1,0 +1,26 @@
+### Cadastrar Cliente
+POST https://localhost:5001/api/cliente/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Julio Cesar",
+    "email": "teste@gmail.com",
+    "endereco": "Curitiba"
+}
+
+### Listar Clientes
+GET https://localhost:5001/api/cliente/listar
+
+### Deletar Cliente
+DELETE https://localhost:5001/api/cliente/deletar/1
+
+### Alterar um Cliente
+PATCH https://localhost:5001/api/cliente/alterar
+Content-Type: application/json
+
+{
+    "id": 2,
+    "nome": "Julio Cesar Alterado",
+    "email": "alterado@gmail.com",
+    "endereco": "São Paulo"
+}
