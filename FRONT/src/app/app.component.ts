@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
+<<<<<<< HEAD
   template: `
     <!--The content below is only a placeholder and can be replaced.-->
     <div style="text-align:center" class="content">
@@ -29,4 +30,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Front';
+=======
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css']
+})
+export class AppComponent {
+  
+>>>>>>> e1319be ("envio")
 }
