@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\Ecommerce.csproj": {}
+    "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\API\\Ecommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\Ecommerce.csproj": {
+    "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\API\\Ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\Ecommerce.csproj",
+        "projectUniqueName": "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\API\\Ecommerce.csproj",
         "projectName": "Ecommerce",
-        "projectPath": "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\Ecommerce.csproj",
+        "projectPath": "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\API\\Ecommerce.csproj",
         "packagesPath": "C:\\Users\\08591413903.EDUC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\obj\\",
+        "outputPath": "C:\\Users\\08591413903.EDUC\\Desktop\\Projeto-eCommerce\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
