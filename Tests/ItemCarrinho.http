@@ -1,0 +1,10 @@
+### Cadastrar um novo item do carrinho
+POST https://localhost:5001/api/item/criar
+Content-Type: application/json
+
+{
+    "ProdutoId": 1, 
+    "Quantidade": 1, 
+    "Preco": 14.50, 
+    "CarrinhoId": ""
+}

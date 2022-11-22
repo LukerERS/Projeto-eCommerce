@@ -18,7 +18,7 @@ namespace Ecommerce.Controllers
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Produto produto)
         {
-            Categoria categoria = _contex.Categorias.Find(produto.CategoriaID);
+            Categoria categoria = _contex.Categorias.Find(produto.CategoriaId);
             produto.Categoria = categoria;
             _contex.Produtos.Add(produto);
             _contex.SaveChanges();
@@ -55,7 +55,7 @@ namespace Ecommerce.Controllers
         {   
             try
             {
-                Categoria categoria = _contex.Categorias.Find(produto.CategoriaID);
+                Categoria categoria = _contex.Categorias.Find(produto.CategoriaId);
                 if(categoria!= null)
                 {
                     produto.Categoria = categoria;

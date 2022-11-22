@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Ecommerce.Migrations
 {
-    public partial class Recriado : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -57,29 +58,68 @@ namespace Ecommerce.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Favoritos",
+                name: "Carrinho",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    IdCliente = table.Column<int>(type: "INTEGER", nullable: false),
-                    ProdutoFavoritadoId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CarrinhoId = table.Column<string>(type: "TEXT", nullable: false),
+                    ClienteId = table.Column<int>(type: "INTEGER", nullable: true),
+                    Total = table.Column<int>(type: "INTEGER", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Favoritos", x => x.Id);
+                    table.PrimaryKey("PK_Carrinho", x => x.CarrinhoId);
                     table.ForeignKey(
-                        name: "FK_Favoritos_Produtos_ProdutoFavoritadoId",
-                        column: x => x.ProdutoFavoritadoId,
-                        principalTable: "Produtos",
+                        name: "FK_Carrinho_Clientes_ClienteId",
+                        column: x => x.ClienteId,
+                        principalTable: "Clientes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ItensCarrinho",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ProdutoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Quantidade = table.Column<int>(type: "INTEGER", nullable: false),
+                    Preco = table.Column<double>(type: "REAL", nullable: false),
+                    CarrinhoId = table.Column<string>(type: "TEXT", nullable: true),
+                    CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ItensCarrinho", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ItensCarrinho_Carrinho_CarrinhoId",
+                        column: x => x.CarrinhoId,
+                        principalTable: "Carrinho",
+                        principalColumn: "CarrinhoId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ItensCarrinho_Produtos_ProdutoId",
+                        column: x => x.ProdutoId,
+                        principalTable: "Produtos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
-                name: "IX_Favoritos_ProdutoFavoritadoId",
-                table: "Favoritos",
-                column: "ProdutoFavoritadoId");
+                name: "IX_Carrinho_ClienteId",
+                table: "Carrinho",
+                column: "ClienteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItensCarrinho_CarrinhoId",
+                table: "ItensCarrinho",
+                column: "CarrinhoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItensCarrinho_ProdutoId",
+                table: "ItensCarrinho",
+                column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Produtos_CategoriaID",
@@ -90,13 +130,16 @@ namespace Ecommerce.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "ItensCarrinho");
 
             migrationBuilder.DropTable(
-                name: "Favoritos");
+                name: "Carrinho");
 
             migrationBuilder.DropTable(
                 name: "Produtos");
+
+            migrationBuilder.DropTable(
+                name: "Clientes");
 
             migrationBuilder.DropTable(
                 name: "Categorias");

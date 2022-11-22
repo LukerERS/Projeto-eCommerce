@@ -9,14 +9,35 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221024164146_Recriado")]
-    partial class Recriado
+    [Migration("20221122125348_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.17");
+
+            modelBuilder.Entity("Ecommerce.Models.Carrinho", b =>
+                {
+                    b.Property<string>("CarrinhoId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("ClienteId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Total")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CarrinhoId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("Carrinho");
+                });
 
             modelBuilder.Entity("Ecommerce.Models.Categoria", b =>
                 {
@@ -52,23 +73,34 @@ namespace Ecommerce.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("Ecommerce.Models.Favoritos", b =>
+            modelBuilder.Entity("Ecommerce.Models.ItemCarrinho", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdCliente")
+                    b.Property<string>("CarrinhoId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Preco")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("ProdutoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ProdutoFavoritadoId")
+                    b.Property<int>("Quantidade")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProdutoFavoritadoId");
+                    b.HasIndex("CarrinhoId");
 
-                    b.ToTable("Favoritos");
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("ItensCarrinho");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.Produto", b =>
@@ -96,13 +128,28 @@ namespace Ecommerce.Migrations
                     b.ToTable("Produtos");
                 });
 
-            modelBuilder.Entity("Ecommerce.Models.Favoritos", b =>
+            modelBuilder.Entity("Ecommerce.Models.Carrinho", b =>
                 {
-                    b.HasOne("Ecommerce.Models.Produto", "ProdutoFavoritado")
+                    b.HasOne("Ecommerce.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ProdutoFavoritadoId");
+                        .HasForeignKey("ClienteId");
 
-                    b.Navigation("ProdutoFavoritado");
+                    b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.ItemCarrinho", b =>
+                {
+                    b.HasOne("Ecommerce.Models.Carrinho", null)
+                        .WithMany("Itens")
+                        .HasForeignKey("CarrinhoId");
+
+                    b.HasOne("Ecommerce.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produto");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.Produto", b =>
@@ -114,6 +161,11 @@ namespace Ecommerce.Migrations
                         .IsRequired();
 
                     b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("Ecommerce.Models.Carrinho", b =>
+                {
+                    b.Navigation("Itens");
                 });
 #pragma warning restore 612, 618
         }

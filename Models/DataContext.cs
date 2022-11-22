@@ -9,6 +9,7 @@ namespace Ecommerce.Models
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Categoria> Categorias {get;set;}
         public DbSet<Produto> Produtos {get;set;}
-        public DbSet<Favoritos> Favoritos { get; set; }
+        public DbSet<ItemCarrinho> ItensCarrinho {get; set;}
+        public DbSet<Carrinho> Carrinho { get; set; }
     }
 }
