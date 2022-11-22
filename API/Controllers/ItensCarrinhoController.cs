@@ -1,6 +1,10 @@
+using System.Security.AccessControl;
 using System;
 using API.Models;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+
 
 namespace API.Controllers 
 {
@@ -10,6 +14,28 @@ namespace API.Controllers
         private readonly DataContext _context; 
         public ItensCarrinhoController(DataContext context) {
             _context = context; 
+        }
+
+        //GET: api/item/listar
+        [HttpGet]
+        [Route("listar")]
+        public IActionResult Listar() {
+            List<CarrinhoItem> itens = new List<CarrinhoItem>(); 
+            List<CarrinhoItem> itensDB = _context.CarrinhoItems.ToList(); 
+
+            foreach (var item in itensDB)
+            {
+             Produto produto = _context.Produtos.Find(item.ProdutoId);
+             item.Produto = produto; 
+
+             itens.Add(item);    
+            }
+
+            if(itensDB == null) {
+                return NotFound();
+            } else {
+                return Ok(itens); 
+            }
         }
 
         //POST: api/item/criar

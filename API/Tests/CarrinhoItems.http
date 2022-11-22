@@ -1,3 +1,6 @@
+### Listar itens do Carrinho
+GET https://localhost:5001/api/item/listar
+
 ### Cadastrar um novo item do carrinho
 POST https://localhost:5001/api/item/criar
 Content-Type: application/json
