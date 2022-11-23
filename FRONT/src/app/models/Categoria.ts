@@ -1,4 +1,4 @@
 export interface Categoria{
     id?:Number;
-    timpo:String;
+    tipo:String;
 }
