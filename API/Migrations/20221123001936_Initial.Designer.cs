@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221122143804_Initial")]
+    [Migration("20221123001936_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,9 @@ namespace Ecommerce.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("CarrinhoId")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
@@ -36,9 +39,14 @@ namespace Ecommerce.Migrations
                     b.Property<int>("Quantidade")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("VendaId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProdutoId");
+
+                    b.HasIndex("VendaId");
 
                     b.ToTable("CarrinhoItems");
                 });
@@ -102,6 +110,28 @@ namespace Ecommerce.Migrations
                     b.ToTable("Produtos");
                 });
 
+            modelBuilder.Entity("API.Models.Venda", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("Vendas");
+                });
+
             modelBuilder.Entity("API.Models.CarrinhoItem", b =>
                 {
                     b.HasOne("API.Models.Produto", "Produto")
@@ -109,6 +139,10 @@ namespace Ecommerce.Migrations
                         .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("API.Models.Venda", null)
+                        .WithMany("Itens")
+                        .HasForeignKey("VendaId");
 
                     b.Navigation("Produto");
                 });
@@ -122,6 +156,22 @@ namespace Ecommerce.Migrations
                         .IsRequired();
 
                     b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("API.Models.Venda", b =>
+                {
+                    b.HasOne("API.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("API.Models.Venda", b =>
+                {
+                    b.Navigation("Itens");
                 });
 #pragma warning restore 612, 618
         }

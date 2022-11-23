@@ -1,9 +1,12 @@
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Security.AccessControl;
 using System;
 using API.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace API.Controllers 
@@ -16,32 +19,24 @@ namespace API.Controllers
             _context = context; 
         }
 
-        //GET: api/item/listar
+        //GET: api/item/Carinho
         [HttpGet]
-        [Route("listar")]
-        public IActionResult Listar() {
-            List<CarrinhoItem> itens = new List<CarrinhoItem>(); 
-            List<CarrinhoItem> itensDB = _context.CarrinhoItems.ToList(); 
-
-            foreach (var item in itensDB)
-            {
-             Produto produto = _context.Produtos.Find(item.ProdutoId);
-             item.Produto = produto; 
-
-             itens.Add(item);    
-            }
-
-            if(itensDB == null) {
-                return NotFound();
-            } else {
-                return Ok(itens); 
-            }
+        [Route("carrinho/{carrinhoId}")]
+        public IActionResult Carrinho([FromRoute] string carrinhoId) {
+            return Ok(_context.CarrinhoItems.
+            Include(item => item.Produto.Categoria).
+            Where(item => item.CarrinhoId == carrinhoId).ToList());
         }
 
         //POST: api/item/criar
         [HttpPost]
         [Route("criar")]
         public IActionResult Criar([FromBody] CarrinhoItem item) {
+            if(String.IsNullOrEmpty(item.CarrinhoId)) 
+            {
+                item.CarrinhoId = Guid.NewGuid().ToString(); 
+            }
+
             Produto produto = _context.Produtos.Find(item.ProdutoId);
             item.Produto = produto; 
             _context.CarrinhoItems.Add(item);  

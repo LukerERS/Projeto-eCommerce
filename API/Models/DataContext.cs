@@ -10,6 +10,6 @@ namespace API.Models
         public DbSet<Categoria> Categorias {get;set;}
         public DbSet<Produto> Produtos {get;set;}
         public DbSet<CarrinhoItem> CarrinhoItems {get; set;}
-      
+        public DbSet<Venda> Vendas {get; set;}
     }
 }
