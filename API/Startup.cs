@@ -28,6 +28,17 @@ namespace Ecommerce
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(
+                options => {
+                    options.AddPolicy("CorsPolicy", 
+                        policy => 
+                            policy.
+                            AllowAnyOrigin().
+                            AllowAnyHeader().
+                            AllowAnyMethod()
+                        );
+                }
+            );
 
             services.AddDbContext<DataContext>
             (
@@ -50,6 +61,8 @@ namespace Ecommerce
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ecommerce v1"));
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
 
