@@ -1,4 +1,4 @@
 export interface Categoria{
-    id?:Number;
+    id?:number;
     tipo:String;
 }
