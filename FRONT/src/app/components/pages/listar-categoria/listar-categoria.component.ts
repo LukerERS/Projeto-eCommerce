@@ -21,5 +21,13 @@ export class ListarCategoriaComponent implements OnInit {
       }
     });
   }
+  deletar(id:number):void{
+    this.http.delete<Categoria>(`https://localhost:5001/api/categoria/deletar/${id}`)
+    .subscribe({
+      next:(categoria)=>{
+        this.ngOnInit();
+      },
+    });
+  }
 
 }
