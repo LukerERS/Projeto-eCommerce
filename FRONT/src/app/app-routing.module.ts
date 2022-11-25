@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastrarCategoriaComponent } from './components/pages/cadastrar-categoria/cadastrar-categoria.component';
 import { CadastrarClienteComponent } from './components/pages/cadastrar-cliente/cadastrar-cliente.component';
 import { CadastrarProdutoComponent } from './components/pages/cadastrar-produto/cadastrar-produto.component';
+import { ListarClienteComponent } from './components/pages/listar-clientes/listar-cliente.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path:"pages/categoria/cadastrar",
     component: CadastrarCategoriaComponent
+  },
+  {
+    path: "pages/cliente/listar",
+    component: ListarClienteComponent
   }
 
 ]

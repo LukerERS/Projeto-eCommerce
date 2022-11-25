@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/eduardagarangau/Desktop/Projeto-eCommerce/API/Ecommerce.csproj": {}
+    "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\Ecommerce.csproj": {}
   },
   "projects": {
-    "/Users/eduardagarangau/Desktop/Projeto-eCommerce/API/Ecommerce.csproj": {
+    "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\Ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eduardagarangau/Desktop/Projeto-eCommerce/API/Ecommerce.csproj",
+        "projectUniqueName": "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\Ecommerce.csproj",
         "projectName": "Ecommerce",
-        "projectPath": "/Users/eduardagarangau/Desktop/Projeto-eCommerce/API/Ecommerce.csproj",
-        "packagesPath": "/Users/eduardagarangau/.nuget/packages/",
-        "outputPath": "/Users/eduardagarangau/Desktop/Projeto-eCommerce/API/obj/",
+        "projectPath": "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\Ecommerce.csproj",
+        "packagesPath": "C:\\Users\\Julio Cesar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/eduardagarangau/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Julio Cesar\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -59,7 +59,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

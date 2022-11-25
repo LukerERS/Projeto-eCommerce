@@ -8,15 +8,17 @@ import { AppComponent } from './app.component';
 import { CadastrarClienteComponent } from './components/pages/cadastrar-cliente/cadastrar-cliente.component';
 import { CadastrarProdutoComponent } from './components/pages/cadastrar-produto/cadastrar-produto.component';
 import { CadastrarCategoriaComponent } from './components/pages/cadastrar-categoria/cadastrar-categoria.component';
+import { ListarClienteComponent } from './components/pages/listar-clientes/listar-cliente.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastrarCategoriaComponent
+    CadastrarCategoriaComponent,
     CadastrarClienteComponent,
-    CadastrarProdutoComponent
-
+    CadastrarProdutoComponent,
+    ListarClienteComponent,
   ],
   imports: [
     BrowserModule,

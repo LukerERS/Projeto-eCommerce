@@ -1,0 +1,27 @@
+<p>listar-clientes works!</p>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Endereço</th>
+        <th>Deletar</th>
+        <th>Alterar</th>
+    </tr>
+    <tr *ngFor="let cliente of clientes">
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ cliente.endereco }}</td>
+        <td>
+            <button>(click)="deletar(cliente.id!)"Deletar</button>
+        </td>
+        <td>
+            <a routerLink="/pages/cliente/cadastrar/{{cliente.id}}">Alterar</a>
+        </td>
+    </tr>
+</table>
+
+
+
