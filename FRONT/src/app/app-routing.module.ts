@@ -23,6 +23,10 @@ const routes: Routes = [
     component: CadastrarClienteComponent
   },
   {
+    path: "pages/categoria/cadastrar/:id",
+    component: CadastrarCategoriaComponent
+  },
+  {
     path:"pages/categoria/cadastrar",
     component: CadastrarCategoriaComponent
   },
@@ -41,5 +45,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-
 export class AppRoutingModule { }
