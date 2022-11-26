@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Security.AccessControl;
@@ -43,6 +44,7 @@ namespace API.Controllers
         public IActionResult Criar([FromBody] CarrinhoItem item) {
             Produto produto = _context.Produtos.Find(item.ProdutoId);
             item.Produto = produto; 
+            item.Preco = produto.Preco; 
             item.Total = item.Quantidade * item.Preco; 
             _context.CarrinhoItems.Add(item);  
             _context.SaveChanges(); 
