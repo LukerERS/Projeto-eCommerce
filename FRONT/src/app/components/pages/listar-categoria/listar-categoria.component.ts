@@ -17,6 +17,7 @@ export class ListarCategoriaComponent implements OnInit {
     this.http.get<Categoria[]>("https://localhost:5001/api/categoria/listar")
     .subscribe({
       next:(categorias)=>{
+        console.table(categorias);
         this.categorias = categorias;
       }
     });

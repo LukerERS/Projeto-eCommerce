@@ -1,11 +1,16 @@
 <p>Categorias</p>
 
 <table>
+    <tr>
+        <th>Tipo</th>
+    </tr>
     <tr *ngFor="let categoria of categorias">
         <td>{{ categoria.tipo }}</td>
         <td>
             <button (click)="deletar(categoria.id!)">Deletar</button>
         </td>
-      
-
+        <td>
+            <a routerLink="/pages/categoria/cadastrar/{{categoria.id}}">Alterar</a>
+        </td>
+    </tr>
 </table>

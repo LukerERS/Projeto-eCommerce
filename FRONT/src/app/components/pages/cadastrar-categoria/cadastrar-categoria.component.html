@@ -1,13 +1,11 @@
 <h2>Cadastrar Categoria</h2>
 
 <div>
-    <label for="id">CategoriaID:</label>
-    <input type="text" name="id" [(ngModel)]="categoriaId"/>
-</div>
-<div>
     <label for="tipo">Tipo:</label>
     <input type="text" name="tipo" [(ngModel)]="tipo">
 </div>
 <div>
-    <button id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
+    <button id="btnCadastrar" (click)="cadastrar()" *ngIf="!categoriaId">Cadastrar</button>
+    <button id="btnAlterar" (click)="alterar()" *ngIf="categoriaId" >Alterar</button>
 </div>
+
