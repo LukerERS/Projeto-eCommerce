@@ -19,6 +19,14 @@ namespace API.Controllers
             _contex.SaveChanges();
             return Created("", categoria);
         }
+         // GET: /api/categoria/buscar/{id}
+        [HttpGet]
+        [Route("buscar/{id}")]
+        public IActionResult Buscar([FromRoute] int id)
+        {
+            Categoria categoria = _contex.Categorias.Find(id);
+            return categoria != null ? Ok(categoria) : NotFound();
+        }
         //GET: /api/categoria/listar
         [HttpGet]
         [Route("listar")]
