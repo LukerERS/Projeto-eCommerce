@@ -519,3 +519,13 @@ C:\Users\Julio Cesar\Documents\Desktop\Atividades Complementares\Projeto-eCommer
 C:\Users\Julio Cesar\Documents\Desktop\Atividades Complementares\Projeto-eCommerce\API\obj\Debug\net5.0\Ecommerce.pdb
 C:\Users\Julio Cesar\Documents\Desktop\Atividades Complementares\Projeto-eCommerce\API\obj\Debug\net5.0\Ecommerce.genruntimeconfig.cache
 C:\Users\Julio Cesar\Documents\Desktop\Atividades Complementares\Projeto-eCommerce\API\obj\Debug\net5.0\ref\Ecommerce.dll
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\Ecommerce.dll
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\ref\Ecommerce.dll
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\Ecommerce.pdb
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\Ecommerce.csproj.AssemblyReference.cache
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\Ecommerce.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\Ecommerce.AssemblyInfoInputs.cache
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\Ecommerce.AssemblyInfo.cs
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\Ecommerce.csproj.CoreCompileInputs.cache
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\Ecommerce.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\eduar\Desktop\Projeto-eCommerce-1\api\obj\Debug\net5.0\Ecommerce.MvcApplicationPartsAssemblyInfo.cache
