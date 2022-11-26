@@ -4,10 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CadastrarCategoriaComponent } from './components/pages/cadastrar-categoria/cadastrar-categoria.component';
 import { CadastrarClienteComponent } from './components/pages/cadastrar-cliente/cadastrar-cliente.component';
+import { CadastrarItemComponent } from './components/pages/cadastrar-item/cadastrar-item.component';
 import { CadastrarProdutoComponent } from './components/pages/cadastrar-produto/cadastrar-produto.component';
 import { ListarCategoriaComponent } from './components/pages/listar-categoria/listar-categoria.component';
 import { ListarClienteComponent } from './components/pages/listar-clientes/listar-cliente.component';
-import { ListarProdutoComponent } from './components/pages/listar-produto/listar-produto.component';
 
 const routes: Routes = [
   {
@@ -44,8 +44,8 @@ const routes: Routes = [
     component: ListarCategoriaComponent
   },
   {
-    path: "pages/produto/listar",
-    component: ListarProdutoComponent
+    path: 'pages/carrinho/cadastrar', 
+    component: CadastrarItemComponent
   }
 
 ]

@@ -1,0 +1,18 @@
+<p>Adicionar Item ao Carrinho</p>
+
+<div id="produto">
+    <label for="produto">Produtos</label>
+    <select [(ngModel)]="produtoId">
+        <option *ngFor="let produto of produtos" 
+          value="{{produto.id}}">
+            {{ produto.nome }}
+        </option>
+    </select>
+</div>
+<div id="quantidade"> 
+    <label for="txtQuantidade">Quantidade</label>
+    <input type="number" id="txtQuantidade" [(ngModel)]="quantidade"/>
+</div>
+<div id="botao">
+    <button id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
+  </div>

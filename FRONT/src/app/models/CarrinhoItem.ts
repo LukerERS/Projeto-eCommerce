@@ -3,8 +3,9 @@ import { Produto } from "./Produto";
 export interface CarrinhoItem {
     id?: number; 
     produtoId: number; 
-    produto: Produto; 
+    produto?: Produto; 
     quantidade: number; 
-    preco: number; 
-   
+    preco?: number; 
+    total?:number; 
+    carrinhoId?: number;
 }

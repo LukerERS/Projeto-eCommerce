@@ -10,7 +10,7 @@ import { CadastrarProdutoComponent } from './components/pages/cadastrar-produto/
 import { CadastrarCategoriaComponent } from './components/pages/cadastrar-categoria/cadastrar-categoria.component';
 import { ListarClienteComponent } from './components/pages/listar-clientes/listar-cliente.component';
 import { ListarCategoriaComponent } from './components/pages/listar-categoria/listar-categoria.component';
-import { ListarProdutoComponent } from './components/pages/listar-produto/listar-produto.component';
+import { CadastrarItemComponent } from './components/pages/cadastrar-item/cadastrar-item.component';
 
 
 
@@ -22,7 +22,7 @@ import { ListarProdutoComponent } from './components/pages/listar-produto/listar
     CadastrarProdutoComponent,
     ListarClienteComponent,
     ListarCategoriaComponent,
-    ListarProdutoComponent,
+    CadastrarItemComponent, 
   ],
   imports: [
     BrowserModule,
