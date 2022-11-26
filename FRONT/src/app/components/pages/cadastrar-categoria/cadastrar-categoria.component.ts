@@ -54,7 +54,7 @@ export class CadastrarCategoriaComponent implements OnInit {
     };
     this.http.patch<Categoria>("https://localhost:5001/api/categoria/alterar", categoria)
     .subscribe({
-      next: (cliente) => {
+      next: (categoria) => {
         this.router.navigate(["pages/categoria/listar"]);
       },
       error: (error) => {
