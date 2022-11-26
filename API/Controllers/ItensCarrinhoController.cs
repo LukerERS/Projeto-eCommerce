@@ -19,26 +19,31 @@ namespace API.Controllers
             _context = context; 
         }
 
-        //GET: api/item/Carinho
+    
         [HttpGet]
         [Route("carrinho/{carrinhoId}")]
-        public IActionResult Carrinho([FromRoute] string carrinhoId) {
-            return Ok(_context.CarrinhoItems.
-            Include(item => item.Produto.Categoria).
-            Where(item => item.CarrinhoId == carrinhoId).ToList());
+        public IActionResult Carrinho([FromRoute] int carrinhoId) {
+            List<CarrinhoItem> itens = new List<CarrinhoItem>(); 
+            List<CarrinhoItem> itensDB = _context.CarrinhoItems.ToList(); 
+
+            foreach (var item in itensDB)
+            {
+                if(item.CarrinhoId == carrinhoId) {
+                    item.Produto = _context.Produtos.Find(item.ProdutoId); 
+                    itens.Add(item); 
+                }
+                
+            }
+            return Ok(itens); 
         }
 
         //POST: api/item/criar
         [HttpPost]
         [Route("criar")]
         public IActionResult Criar([FromBody] CarrinhoItem item) {
-            if(String.IsNullOrEmpty(item.CarrinhoId)) 
-            {
-                item.CarrinhoId = Guid.NewGuid().ToString(); 
-            }
-
             Produto produto = _context.Produtos.Find(item.ProdutoId);
             item.Produto = produto; 
+            item.Total = item.Quantidade * item.Preco; 
             _context.CarrinhoItems.Add(item);  
             _context.SaveChanges(); 
             return Created("", item); 
