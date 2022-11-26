@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\Ecommerce.csproj": {}
+    "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Atividades Complementares\\Projeto-eCommerce\\API\\Ecommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\Ecommerce.csproj": {
+    "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Atividades Complementares\\Projeto-eCommerce\\API\\Ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\Ecommerce.csproj",
+        "projectUniqueName": "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Atividades Complementares\\Projeto-eCommerce\\API\\Ecommerce.csproj",
         "projectName": "Ecommerce",
-        "projectPath": "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\Ecommerce.csproj",
+        "projectPath": "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Atividades Complementares\\Projeto-eCommerce\\API\\Ecommerce.csproj",
         "packagesPath": "C:\\Users\\Julio Cesar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Economia\\Projeto-eCommerce\\API\\obj\\",
+        "outputPath": "C:\\Users\\Julio Cesar\\Documents\\Desktop\\Atividades Complementares\\Projeto-eCommerce\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Julio Cesar\\AppData\\Roaming\\NuGet\\NuGet.Config"

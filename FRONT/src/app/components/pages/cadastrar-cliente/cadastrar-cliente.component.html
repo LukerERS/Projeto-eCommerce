@@ -13,6 +13,9 @@
     <input type="text" id="txtEndereco" [(ngModel)]="endereco">
 </div>
 <div id="btn">
-    <button id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
+    <button *ngIf="!clienteId" id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
+    <button *ngIf="clienteId" id="btnAlterar" (click)="alterar()">Alterar</button>
 </div>
+
+
 

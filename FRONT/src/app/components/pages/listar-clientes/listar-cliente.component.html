@@ -2,7 +2,7 @@
 
 <table>
     <tr>
-        <th>#</th>
+        <th>ID</th>
         <th>Nome</th>
         <th>Email</th>
         <th>Endereço</th>
@@ -15,7 +15,7 @@
         <td>{{ cliente.email }}</td>
         <td>{{ cliente.endereco }}</td>
         <td>
-            <button>(click)="deletar(cliente.id!)"Deletar</button>
+            <button (click)="deletar(cliente.id!)">Deletar</button>
         </td>
         <td>
             <a routerLink="/pages/cliente/cadastrar/{{cliente.id}}">Alterar</a>

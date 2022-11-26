@@ -23,6 +23,15 @@ namespace API.Controllers
             return Created("", cliente);
         }
 
+        // GET: /api/cliente/buscar/{id}
+        [HttpGet]
+        [Route("buscar/{id}")]
+        public IActionResult Buscar([FromRoute] int id)
+        {
+            Cliente cliente = _context.Clientes.Find(id);
+            return cliente != null ? Ok(cliente) : NotFound();
+        }
+
         // GET: /api/cliente/listar
         [HttpGet]
         [Route("listar")]

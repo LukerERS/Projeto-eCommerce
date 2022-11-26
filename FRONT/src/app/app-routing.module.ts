@@ -17,6 +17,11 @@ const routes: Routes = [
     path: "pages/cliente/cadastrar",
     component: CadastrarClienteComponent,
   },
+  //Alterar CLIENTE 
+  {
+    path: "pages/cliente/cadastrar/:id",
+    component: CadastrarClienteComponent
+  },
   {
     path:"pages/categoria/cadastrar",
     component: CadastrarCategoriaComponent

@@ -23,14 +23,14 @@ export class ListarClienteComponent implements OnInit {
      });
   }
 
-  deletar(id:number): void{
+  deletar(id: number): void{
     this.http.delete<Cliente>
     (`https://localhost:5001/api/cliente/deletar/${id}`)
      .subscribe({
       next: (cliente) => {
         this.ngOnInit;
-      }
-     })
+      },
+     });
   }
 
 }

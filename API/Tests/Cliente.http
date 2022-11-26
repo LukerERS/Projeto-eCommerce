@@ -19,8 +19,11 @@ PATCH https://localhost:5001/api/cliente/alterar
 Content-Type: application/json
 
 {
-    "id": 2,
+    "id": 7,
     "nome": "Julio Cesar Alterado",
     "email": "alterado@gmail.com",
     "endereco": "São Paulo"
 }
+
+### Buscar um cliente por ID
+GET https://localhost:5001/api/cliente/buscar/3
