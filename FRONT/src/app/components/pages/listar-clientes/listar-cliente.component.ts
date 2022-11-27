@@ -28,7 +28,7 @@ export class ListarClienteComponent implements OnInit {
     (`https://localhost:5001/api/cliente/deletar/${id}`)
      .subscribe({
       next: (cliente) => {
-        this.ngOnInit;
+        this.ngOnInit();
       },
      });
   }
