@@ -8,7 +8,8 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
-  itens!: CarrinhoItem[]; 
+  itens!: CarrinhoItem[];
+  carrinhoTotal!: number; 
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +20,9 @@ export class CarrinhoComponent implements OnInit {
         next: (itens) => {
           console.table(itens);
           this.itens = itens;
+          for (var item of itens) {
+            this.carrinhoTotal += item.total!; 
+          }
         },
       });
   }
