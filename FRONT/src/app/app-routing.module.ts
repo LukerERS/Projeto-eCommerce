@@ -9,6 +9,7 @@ import { CadastrarProdutoComponent } from './components/pages/cadastrar-produto/
 import { CarrinhoComponent } from './components/pages/carrinho/carrinho.component';
 import { ListarCategoriaComponent } from './components/pages/listar-categoria/listar-categoria.component';
 import { ListarClienteComponent } from './components/pages/listar-clientes/listar-cliente.component';
+import { ListarProdutoComponent } from './components/pages/listar-produto/listar-produto.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: "pages/cliente/listar",
     component: ListarClienteComponent
+  },
+  {
+    path: "pages/produto/listar",
+    component: ListarProdutoComponent
   },
   {
     path: "pages/categoria/listar",

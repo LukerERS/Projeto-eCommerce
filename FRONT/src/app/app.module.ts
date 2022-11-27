@@ -12,6 +12,7 @@ import { ListarClienteComponent } from './components/pages/listar-clientes/lista
 import { ListarCategoriaComponent } from './components/pages/listar-categoria/listar-categoria.component';
 import { CadastrarItemComponent } from './components/pages/cadastrar-item/cadastrar-item.component';
 import { CarrinhoComponent } from './components/pages/carrinho/carrinho.component';
+import { ListarProdutoComponent } from './components/pages/listar-produto/listar-produto.component';
 
 
 
@@ -23,6 +24,7 @@ import { CarrinhoComponent } from './components/pages/carrinho/carrinho.componen
     CadastrarProdutoComponent,
     ListarClienteComponent,
     ListarCategoriaComponent,
+    ListarProdutoComponent,
     CadastrarItemComponent,
     CarrinhoComponent, 
   ],
