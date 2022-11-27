@@ -1,0 +1,21 @@
+<p>Produtos</p>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>categoria</th>
+        <th>Descricao</th>
+    </tr>
+    <tr *ngFor="let produto of produtos">
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.preco }}</td>
+        <td>{{ produto.categoria?.tipo }}</td>
+        <td>{{ produto.descricao }}</td>
+        <td>
+            <button (click)="deletar(produto.id!)">Deletar</button>
+        </td>
+        <td>
+            <a routerLink="/pages/produto/cadastrar/{{produto.id}}">Alterar</a>
+        </td>
+    </tr>
+</table>
