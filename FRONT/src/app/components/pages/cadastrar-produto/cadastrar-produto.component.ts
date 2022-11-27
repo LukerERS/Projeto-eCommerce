@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Categoria } from 'src/app/models/Categoria';
 import { Produto } from 'src/app/models/Produto';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -17,7 +18,9 @@ export class CadastrarProdutoComponent implements OnInit {
   categorias!: Categoria[];
 
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.http.get<Categoria[]>("https://localhost:5001/api/categoria/listar")
@@ -45,6 +48,10 @@ export class CadastrarProdutoComponent implements OnInit {
       },
     });
     console.log(produto);
+  }
+
+  openSnackBar(message: string, action: string){
+    let snackBarRef = this.snackBar.open(message,action);
   }
 
 }

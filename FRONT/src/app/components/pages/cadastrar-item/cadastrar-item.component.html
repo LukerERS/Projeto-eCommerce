@@ -1,18 +1,28 @@
-<p>Adicionar Item ao Carrinho</p>
 
-<div id="produto">
-    <label for="produto">Produtos</label>
-    <select [(ngModel)]="produtoId">
-        <option *ngFor="let produto of produtos" 
-          value="{{produto.id}}">
-            {{ produto.nome }}
-        </option>
-    </select>
-</div>
-<div id="quantidade"> 
-    <label for="txtQuantidade">Quantidade</label>
-    <input type="number" id="txtQuantidade" [(ngModel)]="quantidade"/>
-</div>
-<div id="botao">
-    <button id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
-  </div>
+
+<mat-card class="container">
+    <mat-card-header>
+        <mat-card-title>Adicionar Item ao Carrinho</mat-card-title>
+    </mat-card-header>
+
+<mat-card-content>
+    <mat-form-field class="input">
+        <mat-label for="produto">Produto</mat-label>
+        <mat-select  [(ngModel)]="produtoId" >
+            <mat-option *ngFor="let produto of produtos" value="{{produto.id}}">
+                {{ produto.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field id="quantidade" class="input">
+        <mat-label for="txtQuantidade">Quantidade</mat-label>
+        <input matInput type="number" id="txtQuantidade" [(ngModel)]="quantidade"/>
+    </mat-form-field>
+</mat-card-content>
+    <div id="botao">
+        <button mat-raised-button color="primary" id="btnCadastrar" (click)="openSnackBar('Produto cadastrado com sucesso!','Fechar')" (click)="cadastrar()">Cadastrar</button>
+    </div>
+
+</mat-card>
+
+

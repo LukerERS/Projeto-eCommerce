@@ -4,6 +4,7 @@ import { Cliente } from 'src/app/models/Cliente';
 import { ActivatedRoute, Router } from '@angular/router';
 import { timeStamp } from 'console';
 import { error } from '@angular/compiler/src/util';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastrar-cliente',
@@ -21,7 +22,8 @@ export class CadastrarClienteComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
@@ -82,6 +84,15 @@ export class CadastrarClienteComponent implements OnInit {
       },
     });
   }
+
+  
+  openSnackBar(message: string, action: string){
+    let snackBarRef = this.snackBar.open(message,action);
+  }
+   
+  
+  
+
 
 }
 

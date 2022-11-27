@@ -1,26 +1,38 @@
-<p>Cadastrar Produto</p>
+<mat-card class="container">
+    <mat-card-header>
+        <mat-card-title>Cadastrar Produto</mat-card-title>
+    </mat-card-header>
 
-<div id="categoria">
-    <label for="categoria">Categorias</label>
-    <select [(ngModel)]="categoriaId">
-        <option *ngFor="let categoria of categorias" 
-          value="{{categoria.id}}">
-            {{ categoria.tipo }}
-        </option>
-    </select>
-</div>
-<div id="nome"> 
-    <label for="txtnome">Nome</label>
-    <input type="text" id="txtnome" [(ngModel)]="nome"/>
-</div>
-<div id="preco"> 
-    <label for="txtpreco">Preço</label>
-    <input type="number" id="txtpreco" [(ngModel)]="preco"/>
-</div>
-<div id="descricao"> 
-    <label for="txtdescricao">Descrição</label>
-    <input type="text" id="txtdescricao" [(ngModel)]="descricao"/>
-</div>
-<div id="botao">
-    <button id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
-  </div>
+    <mat-card-content>
+        <mat-form-field class="input">
+            <mat-label for="categoria">Categorias</mat-label>
+            <mat-select [(ngModel)]="categoriaId">
+                <mat-option *ngFor="let categoria of categorias"  value="{{categoria.id}}">
+                    {{ categoria.tipo }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field id="nome" class="input"> 
+            <mat-label for="txtnome">Nome</mat-label>
+            <input matInput type="text" id="txtnome" [(ngModel)]="nome"/>
+        </mat-form-field>
+        <mat-form-field id="preco" class="input"> 
+            <mat-label for="txtpreco">Preço</mat-label>
+            <input matInput type="number" id="txtpreco" [(ngModel)]="preco"/>
+        </mat-form-field>
+        <mat-form-field id="descricao" class="input"> 
+            <mat-label for="txtdescricao">Descrição</mat-label>
+            <input matInput type="text" id="txtdescricao" [(ngModel)]="descricao"/>
+        </mat-form-field> 
+    </mat-card-content>
+    <div id="btn">
+        <button mat-raised-button color="primary" id="btnCadastrar" (click)="openSnackBar('Produto cadastrado com sucesso!','Fechar')" (click)="cadastrar()">Cadastrar</button>
+      </div>
+</mat-card>
+
+
+
+
+
+

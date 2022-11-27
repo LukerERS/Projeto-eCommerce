@@ -5,5 +5,5 @@ export interface Produto{
     categoria?:Categoria;
     nome:String;
     descricao:String;
-    preco:Number;
+    preco?:number;
 }

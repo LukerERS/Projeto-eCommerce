@@ -1,4 +1,4 @@
-<p>listar-clientes works!</p>
+
 
 <table>
     <tr>
@@ -15,10 +15,10 @@
         <td>{{ cliente.email }}</td>
         <td>{{ cliente.endereco }}</td>
         <td>
-            <button (click)="deletar(cliente.id!)">Deletar</button>
+            <button mat-raised-button color="warn" (click)="deletar(cliente.id!)">Deletar</button>
         </td>
         <td>
-            <a routerLink="/pages/cliente/cadastrar/{{cliente.id}}">Alterar</a>
+            <button mat-raised-button color="accent" routerLink="/pages/cliente/cadastrar/{{cliente.id}}">Alterar</button>
         </td>
     </tr>
 </table>

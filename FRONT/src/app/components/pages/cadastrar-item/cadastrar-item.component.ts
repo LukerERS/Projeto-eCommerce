@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http'
 import { CarrinhoItem } from 'src/app/models/CarrinhoItem';
 import { ActivatedRoute, Router } from "@angular/router";
 import { Produto } from 'src/app/models/Produto';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastrar-item',
@@ -18,7 +19,8 @@ export class CadastrarItemComponent implements OnInit {
     constructor(
       private http: HttpClient,
       private router: Router,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      private snackBar: MatSnackBar
       ) { }
 
   ngOnInit(): void {
@@ -48,6 +50,10 @@ export class CadastrarItemComponent implements OnInit {
       },
     });
     console.log(carrinho);
+  }
+
+  openSnackBar(message: string, action: string){
+    let snackBarRef = this.snackBar.open(message,action);
   }
 
 }

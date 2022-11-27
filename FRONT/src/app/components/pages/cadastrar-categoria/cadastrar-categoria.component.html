@@ -1,11 +1,19 @@
-<h2>Cadastrar Categoria</h2>
+<mat-card class="container">
+    <mat-card-header>
+        <mat-card-title>Cadastrar Categoria</mat-card-title>
+    </mat-card-header>
 
-<div>
-    <label for="tipo">Tipo:</label>
-    <input type="text" name="tipo" [(ngModel)]="tipo">
+<mat-card-content>
+    <mat-form-field class="input">
+        <mat-label for="tipo">Tipo</mat-label>
+        <input matInput type="text" name="tipo" [(ngModel)]="tipo">
+    </mat-form-field>
+</mat-card-content>
+
+<div id="btn">
+    <button mat-raised-button color="primary" id="btnCadastrar" (click)="openSnackBar('Categoria cadastrada com sucesso!','Fechar')" (click)="cadastrar()" *ngIf="!categoriaId">Cadastrar</button>
+    <button mat-raised-button color="primary" id="btnAlterar" (click)="openSnackBar('Categoria alterada com sucesso!','Fechar')" (click)="alterar()" *ngIf="categoriaId" >Alterar</button>
 </div>
-<div>
-    <button id="btnCadastrar" (click)="cadastrar()" *ngIf="!categoriaId">Cadastrar</button>
-    <button id="btnAlterar" (click)="alterar()" *ngIf="categoriaId" >Alterar</button>
-</div>
+
+</mat-card>
 

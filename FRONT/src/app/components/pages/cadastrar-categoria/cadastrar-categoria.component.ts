@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Categoria } from 'src/app/models/Categoria';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastrar-categoria',
@@ -17,6 +18,7 @@ export class CadastrarCategoriaComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -66,6 +68,10 @@ export class CadastrarCategoriaComponent implements OnInit {
       },
     });
 
+  }
+
+  openSnackBar(message: string, action: string){
+    let snackBarRef = this.snackBar.open(message,action);
   }
 
 }

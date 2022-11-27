@@ -1,21 +1,35 @@
-<h2>Cadastrar Cliente</h2>
+<mat-card class="container">
+    <mat-card-header> 
+        <mat-card-title>Cadastrar Cliente </mat-card-title>
+    </mat-card-header>
 
-<div id="nome">
-    <label for="txtnome">Nome</label>
-    <input type="text" id="txtNome" [(ngModel)]="nome"/>
-</div>
-<div id="cpf">
-    <label for="txtEmail">Email</label>
-    <input type="text" id="txtEmail" [(ngModel)]="email">
-</div>
-<div id="endereco">
-    <label for="txtEndereco">Endereço</label>
-    <input type="text" id="txtEndereco" [(ngModel)]="endereco">
-</div>
-<div id="btn">
-    <button *ngIf="!clienteId" id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
-    <button *ngIf="clienteId" id="btnAlterar" (click)="alterar()">Alterar</button>
-</div>
+    <mat-card-content>
+        <mat-form-field id="nome" class="input">
+            <mat-label for="txtnome">Nome</mat-label>
+            <input matInput type="text" id="txtNome" [(ngModel)]="nome"/>
+        </mat-form-field>
+        <mat-form-field id="email" class="input">
+            <mat-label for="txtEmail">Email</mat-label>
+            <input matInput type="text" id="txtEmail" [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field id="endereco" class="input">
+            <mat-label for="txtEndereco">Endereço</mat-label>
+            <input matInput type="text" id="txtEndereco" [(ngModel)]="endereco">
+        </mat-form-field>
+    </mat-card-content>
+    <div id="btn">
+        <button mat-raised-button color="primary" *ngIf="!clienteId" id="btnCadastrar" (click)="openSnackBar('Cliente cadastrado com sucesso!','Fechar')" (click)="cadastrar()">Cadastrar</button>
+        <button mat-raised-button color="primary" *ngIf="clienteId" id="btnAlterar" (click)="openSnackBar('Cliente alterado com sucesso!','Fechar')"(click)="alterar()">Alterar</button>
+    </div>
+</mat-card>
+
+
+
+
+
+
+
+
 
 
 
