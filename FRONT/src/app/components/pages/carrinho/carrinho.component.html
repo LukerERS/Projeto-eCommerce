@@ -1,0 +1,19 @@
+<p>Carrinho</p>
+
+<table border="1">
+    <tr>
+      <th>Produto</th>
+      <th>Preço</th>
+      <th>Quantidade</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let item of itens">
+      <td>{{ item.produto?.nome }}</td>
+      <td>{{ item.preco | currency: "BRL":"R$ " }}</td>
+      <td>{{ item.quantidade }}</td>
+      <td>{{ item.total | currency: "BRL":"R$ " }}</td>
+      <td>
+        <button (click)="deletar(item.id!)">Deletar</button>
+      </td>
+    </tr>
+  </table>

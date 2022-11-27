@@ -6,6 +6,7 @@ import { CadastrarCategoriaComponent } from './components/pages/cadastrar-catego
 import { CadastrarClienteComponent } from './components/pages/cadastrar-cliente/cadastrar-cliente.component';
 import { CadastrarItemComponent } from './components/pages/cadastrar-item/cadastrar-item.component';
 import { CadastrarProdutoComponent } from './components/pages/cadastrar-produto/cadastrar-produto.component';
+import { CarrinhoComponent } from './components/pages/carrinho/carrinho.component';
 import { ListarCategoriaComponent } from './components/pages/listar-categoria/listar-categoria.component';
 import { ListarClienteComponent } from './components/pages/listar-clientes/listar-cliente.component';
 
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'pages/carrinho/cadastrar', 
     component: CadastrarItemComponent
+  }, 
+  {
+    path: 'pages/carrinho/listar',
+    component: CarrinhoComponent
   }
 
 ]
