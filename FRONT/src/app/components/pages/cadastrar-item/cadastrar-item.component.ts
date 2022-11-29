@@ -54,6 +54,7 @@ export class CadastrarItemComponent implements OnInit {
 
   openSnackBar(message: string, action: string){
     let snackBarRef = this.snackBar.open(message,action);
+  this.router.navigate(["pages/carrinho/listar"]);
   }
 
 }

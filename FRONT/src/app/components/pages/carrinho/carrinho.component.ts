@@ -20,9 +20,6 @@ export class CarrinhoComponent implements OnInit {
         next: (itens) => {
           console.table(itens);
           this.itens = itens;
-          for (var item of itens) {
-            this.carrinhoTotal += item.total!; 
-          }
         },
       });
   }
