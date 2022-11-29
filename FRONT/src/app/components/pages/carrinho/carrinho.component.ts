@@ -31,7 +31,7 @@ export class CarrinhoComponent implements OnInit {
     this.http.delete<CarrinhoItem>
       (`https://localhost:5001/api/item/deletar/${id}`)
       .subscribe({
-        next: (funcionario) => {
+        next: (carrinhoItem) => {
           this.ngOnInit();
         },
       });
