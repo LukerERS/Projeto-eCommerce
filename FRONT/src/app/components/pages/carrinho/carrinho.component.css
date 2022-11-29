@@ -1,4 +1,24 @@
+p {
+    font-size: x-large;
+    text-align: center; 
+    font-weight: bold;
+    color: #FFF;
+    background-color: #673AB7;   
+
+}
+
 table{
     width: 100%;
     text-align: center;
+    border-collapse: collapse;
+    padding: 30px;
+}
+  
+table tr:nth-child(even) {
+    background-color: #F0ECEC;
+}
+
+button {
+    width: 50%;
+    height: 100%;
 }
