@@ -48,6 +48,14 @@ namespace API.Controllers
             }
             return NotFound();
         }
+        // GET: /api/produto/buscar/{id}
+        [HttpGet]
+        [Route("buscar/{id}")]
+        public IActionResult Buscar([FromRoute] int id)
+        {
+            Produto produto = _contex.Produtos.Find(id);
+            return produto != null ? Ok(produto) : NotFound();
+        }
         //PATCH: /api/produto/alterar
         [HttpPatch]
         [Route("alterar")]
