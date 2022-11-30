@@ -14,9 +14,9 @@ Patch https://localhost:5001/api/produto/alterar
 Content-Type: application/json
 
 {
-    "id": 2,
-    "categoriaID": 1,
-    "nome": "Mudou2",
+    "id": 4,
+    "categoriaID": 2,
+    "nome": "Notebook Acer",
     "descricao": "ACER Notebook Aspire 5 A515-56-32PG, Intel Core I3 11ª geração, 4GB, 256GB SDD, Windows11, Prata",
     "preco": 2550
 
