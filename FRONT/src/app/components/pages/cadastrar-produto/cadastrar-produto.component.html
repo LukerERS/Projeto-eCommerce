@@ -27,7 +27,8 @@
         </mat-form-field> 
     </mat-card-content>
     <div id="btn">
-        <button mat-raised-button color="primary" id="btnCadastrar" (click)="openSnackBar('Produto cadastrado com sucesso!','Fechar')" (click)="cadastrar()">Cadastrar</button>
+        <button mat-raised-button color="primary" *ngIf="!produtoId" id="btnCadastrar" (click)="openSnackBar('Produto cadastrado com sucesso!','Fechar')" (click)="cadastrar()">Cadastrar</button>
+        <button mat-raised-button color="primary" *ngIf="produtoId" id="btnAlterar" (click)="openSnackBar('Produto alterado com sucesso!','Fechar')"(click)="alterar()">Alterar</button>
       </div>
 </mat-card>
 

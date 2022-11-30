@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Categoria } from 'src/app/models/Categoria';
 import { Produto } from 'src/app/models/Produto';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -16,10 +17,13 @@ export class CadastrarProdutoComponent implements OnInit {
   descricao!:String;
   preco!:number;
   categorias!: Categoria[];
+  erro!:String;
 
 
   constructor(
     private http: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute,
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -28,6 +32,22 @@ export class CadastrarProdutoComponent implements OnInit {
     .subscribe({
       next: (categorias) => {
         this.categorias = categorias;
+      }
+    }),
+    this.route.params.subscribe((params) => {
+      let { id } = params;
+      if(id !== undefined){
+        this.http.get<Produto>
+          (`https://localhost:5001/api/produto/buscar/${id}`)
+          .subscribe({
+            next: (produto) => {
+              this.nome = produto.nome;
+              this.preco = produto.preco;
+              this.descricao = produto.descricao;
+              this.produtoId = produto.id!;
+              this.categoriaId = produto.categoriaId;
+            },
+          });
       }
     });
   }
@@ -44,10 +64,35 @@ export class CadastrarProdutoComponent implements OnInit {
     .subscribe({
       next: (produto) =>{
         //Quando a requisição for BEM SUCEDIDA
+        this.router.navigate(["pages/produto/listar"]);
         console.log("Item adicionado com sucesso!");
       },
     });
     console.log(produto);
+  }
+
+  alterar(): void{
+    let produto: Produto = {
+      id : this.produtoId,
+      nome : this.nome,
+      descricao : this.descricao,
+      preco : this.preco,
+      categoriaId: this.categoriaId
+    };
+    //Requisição
+    this.http.patch<Produto>("https://localhost:5001/api/produto/alterar", produto)
+    .subscribe({
+      next: (produto) => {
+        this.router.navigate(["pages/produto/listar"]);
+      },
+      error: (error) => {
+        if(error.status == 400){
+          this.erro = "Erro de validação";
+        }else if(error.status == 0){
+          this.erro = "Inicie a sua API"
+        }
+      },
+    });
   }
 
   openSnackBar(message: string, action: string){
